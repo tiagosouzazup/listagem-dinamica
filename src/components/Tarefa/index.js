@@ -1,31 +1,43 @@
 import React, { useState } from 'react';
 
+import Button from '../Button';
+
 const NovaTarefa = ({ onSubmit }) => {
 
     const [novoNome, setNovoNome] = useState('');
 
+    const [novoSobrenome, setNovoSobrenome] = useState('');
+
+    function setNovaLastname({ target }) {
+        setNovoSobrenome( target.value)
+    }
+    
     function setNovaTarefa({ target }) {
         setNovoNome(target.value);
+
     }
     function submit(e) {
         e.preventDefault();
-        onSubmit(novoNome);
+        onSubmit(novoNome + " " + novoSobrenome);
     }
     return (
         <div>
-            <form onSubmit={submit}>
+            
                 <input
                     placeholder="Digite um nome"
                     onChange={setNovaTarefa}
                 />
-                <input
-                    placeholder="digite um sobrenome"
-                    onChange={setNovaTarefa}
+                 <input
+                    placeholder="Digite um sobrenome"
+                    onChange={setNovaLastname}
                 />
-                <button type="submit">
+                <Button onClick={submit}
+                />
+
+                {/* <button type="submit">
                     Adicionar
-                </button>
-            </form>
+                </button> */}
+            
         </div>
     )
 };
