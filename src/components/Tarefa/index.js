@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 const NovaTarefa = ({ onSubmit }) => {
@@ -19,18 +18,14 @@ const NovaTarefa = ({ onSubmit }) => {
                     placeholder="Digite um nome"
                     onChange={setNovaTarefa}
                 />
-
                 <input
                     placeholder="digite um sobrenome"
                     onChange={setNovaTarefa}
                 />
-                <Button/>
-
-                {/* <button type="submit">
-                Adicionar
-            </button> */}
+                <button type="submit">
+                    Adicionar
+                </button>
             </form>
-            
         </div>
     )
 };
