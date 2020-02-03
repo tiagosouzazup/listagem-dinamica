@@ -34,9 +34,7 @@ const NovaTarefa = ({ onSubmit }) => {
                 <Button onClick={submit}
                 />
 
-                {/* <button type="submit">
-                    Adicionar
-                </button> */}
+              
             
         </div>
     )
