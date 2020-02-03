@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ListItem = ({ onChange, value }) => {
+const ListItem = ({value }) => {
     return (
     <p> {value}</p>
     );

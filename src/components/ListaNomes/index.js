@@ -8,10 +8,11 @@ import Tarefa from '../Tarefa';
 const ListaNomes = () => {
     const [tarefas, setTarefas] = useState([]);
     const [encontrado, setEncontrado] = useState(false)
+    const [nome, setNome] = useState("")
     useEffect(
         () => {
-            const nome = "Tiago Souza"
-            const achou = tarefas.find(tarefa => tarefa.value===nome)
+            console.log(tarefas, nome)
+            const achou = nome && tarefas.find(tarefa => tarefa.value.includes(nome))
             if (achou) {
                 setEncontrado(true)
             }
@@ -19,7 +20,8 @@ const ListaNomes = () => {
                 setEncontrado(false)
             }
         },
-        [tarefas]
+        [tarefas, nome]
+
     )
 
     function addNovaTarefa(tarefa) {
@@ -33,9 +35,10 @@ const ListaNomes = () => {
             {
                 encontrado && 
                 <div>
-                    nome encontrado 
+                nome encontrado 
                 </div>
             }
+            <input value={nome} onChange={evento => setNome(evento.target.value)}/>
             <Tarefa onSubmit={addNovaTarefa} />
             {tarefas.map(({id, value}) => (
               <Lista
