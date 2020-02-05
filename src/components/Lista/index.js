@@ -1,9 +1,15 @@
 import React from 'react';
+import Delete from '../Delete';
 
-const ListItem = ({value }) => {
-    return (
-    <p> {value}</p>
-    );
-  };
-  
-  export default ListItem;
+const ListItem = ({ value, onDelete }) => {
+  return (
+    <div>
+      <p> {value}
+        <Delete onClick={onDelete} />
+      </p>
+    </div>
+
+  );
+};
+
+export default ListItem;
