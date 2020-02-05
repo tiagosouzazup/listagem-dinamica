@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react';
 import Lista from '../Lista';
 import Tarefa from '../Tarefa';
 
+
 const ListaNomes = () => {
     const [tarefas, setTarefas] = useState([]);
     const [encontrado, setEncontrado] = useState(false)
     const [nome, setNome] = useState("")
     useEffect(
         () => {
-            // console.log(tarefas, nome)
-            const achou = nome && tarefas.find(tarefa => tarefa.value.includes(nome))
+            console.log(tarefas, nome)
+            const achou = nome && tarefas.find(tarefa => tarefa.value===nome)
             if (achou) {
                 setEncontrado(true)
             }
@@ -27,9 +28,9 @@ const ListaNomes = () => {
         nomes.push({ id: tarefas.length, value: tarefa });
         setTarefas(nomes);
     }
-    function deleteTarefa() {
+    function deleteTarefa(index) {
         const nomes = Array.from(tarefas);
-        nomes.splice(nome);
+        nomes.splice(index, 1);
         setTarefas(nomes);
     }
 
@@ -37,23 +38,22 @@ const ListaNomes = () => {
     return (
         <div>
             {
-                encontrado ?
+               nome && (encontrado ?
                 <div>
                    <p> Nome encontrado </p>
                 </div>
                 : 
                 <div>
                    <p> Nome não encontrado </p>
-                </div>
-            
+                </div>)
             }
             
             <input className="Pesquisar" value={nome} onChange={evento => setNome(evento.target.value)} />
             <Tarefa onSubmit={addNovaTarefa} />
-            {tarefas.map(({ id, value }) => (<Lista
+            {tarefas.map(({ id, value },index) => (<Lista
                 key={id}
                 value={value}
-                onDelete={() => deleteTarefa(nome)}
+                onDelete={() => deleteTarefa(index)}
             />))}
 
         </div>
