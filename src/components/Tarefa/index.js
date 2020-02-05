@@ -9,9 +9,9 @@ const NovaTarefa = ({ onSubmit }) => {
     const [novoSobrenome, setNovoSobrenome] = useState('');
 
     function setNovaLastname({ target }) {
-        setNovoSobrenome( target.value)
+        setNovoSobrenome(target.value)
     }
-    
+
     function setNovaTarefa({ target }) {
         setNovoNome(target.value);
 
@@ -22,20 +22,16 @@ const NovaTarefa = ({ onSubmit }) => {
     }
     return (
         <div>
-            
-                <input
-                    placeholder="Digite um nome"
-                    onChange={setNovaTarefa}
-                />
-                 <input
-                    placeholder="Digite um sobrenome"
-                    onChange={setNovaLastname}
-                />
-                <Button onClick={submit}
-                />
-
-              
-            
+            <input
+                placeholder="Digite um nome"
+                onChange={setNovaTarefa}
+            />
+            <input
+                placeholder="Digite um sobrenome"
+                onChange={setNovaLastname}
+            />
+            <Button onClick={submit}
+            />
         </div>
     )
 };
