@@ -5,9 +5,10 @@ const ListItem = ({ value, onDelete }) => {
   return (
     <div>
       <p> {value}
-        <Delete onClick={onDelete} />
+      <Delete onClick={onDelete} />  
       </p>
-    </div>
+     
+      </div>
 
   );
 };
